@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import { addingMoney } from '../../redux/slices/user';
+import { addMoney } from '../../redux/slices/user';
 
 function Account() {
   const [incrementAmount, setIncrementAmount] = useState();
@@ -9,6 +10,13 @@ function Account() {
   const incrementValue = Number(incrementAmount) || 0;
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // const decrementAmount = () => {
+  //   if (incrementAmount >= balance) {
+  //     dispatch(withdrawMoney(incrementValue));
+  //   }
+  // };
 
   return (
     <div>
@@ -21,12 +29,13 @@ function Account() {
         </div>
         <button
           type="button"
-          onClick={() => dispatch(addingMoney(incrementValue))}
+          onClick={() => dispatch(addMoney(incrementValue))}
         >
           Depósito
         </button>
         <button
           type="button"
+          // onClick={decrementAmount}
         >
           Retirada
         </button>
@@ -36,6 +45,19 @@ function Account() {
           value={incrementAmount}
           onChange={(e) => setIncrementAmount(e.target.value)}
         />
+      </div>
+      <div>
+        <button
+          type="button"
+          onClick={() => navigate('/assets')}
+        >
+          Voltar
+        </button>
+        <button
+          type="button"
+        >
+          Confirmar
+        </button>
       </div>
     </div>
   );

@@ -1,31 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { changeName, changePassword } from '../../redux/slices/user';
 
-const { useRef } = require('react');
-
 function Login() {
-  const nameElement = useRef();
-  const passwordElement = useRef();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleChange = ({ target: { name, value } }) => {
+    if (name === 'email') {
+      setEmail(value);
+    }
+    if (name === 'password') {
+      setPassword(value);
+    }
+  };
+
+  const isButtonDisabled = () => !(/\S+@\S+\.\S+/).test(email)
+    || (password.length < 6);
+
+  const handleClick = (event) => {
     event.preventDefault();
 
-    dispatch(changeName(nameElement.current.value));
-    dispatch(changePassword(passwordElement.current.value));
+    dispatch(changeName(email));
+    dispatch(changePassword(password));
 
     navigate('/assets');
   };
-
-  // const email = useSelector((state) => state.user.email);
-  // const password = useSelector((state) => state.user.password);
-
-  // const isButtonDisabled = () => !(/\S+@\S+\.\S+/).test(email)
-  // || (password.length <= 6);
 
   return (
     <div>
@@ -35,18 +39,20 @@ function Login() {
           id="email"
           type="email"
           name="email"
-          ref={nameElement}
+          value={email}
+          onChange={handleChange}
         />
         <input
           id="password"
           type="password"
           name="password"
-          ref={passwordElement}
+          value={password}
+          onChange={handleChange}
         />
         <button
           type="button"
-        // disabled={isButtonDisabled()}
-          onClick={handleSubmit}
+          disabled={isButtonDisabled()}
+          onClick={handleClick}
         >
           Entrar
         </button>

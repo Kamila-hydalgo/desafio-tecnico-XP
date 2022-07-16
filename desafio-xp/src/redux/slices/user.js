@@ -16,11 +16,20 @@ export const userSlice = createSlice({
     changePassword: (state, action) => {
       state.password = action.payload;
     },
-    addingMoney: (state, action) => {
+    addMoney: (state, action) => {
       state.balance += action.payload;
+    },
+    withdrawMoney: (state, action) => {
+      state.balance -= action.payload;
     },
   },
 });
 
-export const { changeName, changePassword, addingMoney } = userSlice.actions;
+export const {
+  changeName,
+  changePassword,
+  addMoney,
+  withdrawMoney,
+} = userSlice.actions;
+
 export default userSlice.reducer;
