@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   email: '',
   password: '',
+  balance: 100,
 };
 
 export const userSlice = createSlice({
@@ -15,8 +16,11 @@ export const userSlice = createSlice({
     changePassword: (state, action) => {
       state.password = action.payload;
     },
+    addingMoney: (state, action) => {
+      state.balance += action.payload;
+    },
   },
 });
 
-export const { changeName, changePassword } = userSlice.actions;
+export const { changeName, changePassword, addingMoney } = userSlice.actions;
 export default userSlice.reducer;

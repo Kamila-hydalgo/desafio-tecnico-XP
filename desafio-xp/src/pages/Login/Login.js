@@ -29,25 +29,28 @@ function Login() {
 
   return (
     <div>
-      <input
-        id="email"
-        type="email"
-        name="email"
-        ref={nameElement}
-      />
-      <input
-        id="password"
-        type="password"
-        name="password"
-        ref={passwordElement}
-      />
-      <button
-        type="button"
+      <form>
+        <h1>TradeX</h1>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          ref={nameElement}
+        />
+        <input
+          id="password"
+          type="password"
+          name="password"
+          ref={passwordElement}
+        />
+        <button
+          type="button"
         // disabled={isButtonDisabled()}
-        onClick={handleSubmit}
-      >
-        Entrar
-      </button>
+          onClick={handleSubmit}
+        >
+          Entrar
+        </button>
+      </form>
     </div>
   );
 }
