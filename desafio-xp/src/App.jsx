@@ -1,17 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import Account from './pages/Account/Account';
+import Assets from './pages/Assets/Assets';
 import Login from './pages/Login/Login';
 
 function App() {
-  <div>Desafio Técnico XP </div>;
   return (
-    <BrowserRouter>
-      <Route>
-        <Routes exact path="/" component={Login} />
-      </Route>
-
-    </BrowserRouter>
-
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/account" element={<Account />} />
+      <Route path="/assets" element={<Assets />} />
+    </Routes>
   );
 }
 
