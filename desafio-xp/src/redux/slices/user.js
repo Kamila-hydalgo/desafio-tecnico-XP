@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   email: '',
   password: '',
-  balance: 100,
+  balance: 0,
 };
 
 export const userSlice = createSlice({

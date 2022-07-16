@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
+import MyAssets from '../../components/MyAssets/MyAssets';
+import AllAssets from '../../components/AllAssets/AllAssets';
 
 function Assets() {
   const navigate = useNavigate();
@@ -12,7 +14,8 @@ function Assets() {
     <div>
       <Header />
       <div>
-        Assets
+        <MyAssets />
+        <AllAssets />
         <button
           type="button"
           onClick={handleClick}
