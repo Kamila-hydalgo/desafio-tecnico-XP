@@ -1,29 +1,28 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { changeName } from '../../redux/slices/user';
+import { changeName, changePassword } from '../../redux/slices/user';
 
 const { useRef } = require('react');
 
 function Login() {
   const nameElement = useRef();
   const passwordElement = useRef();
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const email = useSelector((state) => state.user.email);
-  // const password = useSelector((state) => state.user.password);
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    // console.log(nameElement.current.value, passwordElement.current.value);
 
-    dispatch(changeName({
-      email: nameElement.current.value,
-    }));
+    dispatch(changeName(nameElement.current.value));
+    dispatch(changePassword(passwordElement.current.value));
 
     navigate('/assets');
   };
+
+  // const email = useSelector((state) => state.user.email);
+  // const password = useSelector((state) => state.user.password);
 
   // const isButtonDisabled = () => !(/\S+@\S+\.\S+/).test(email)
   // || (password.length <= 6);
@@ -44,7 +43,7 @@ function Login() {
       />
       <button
         type="button"
-        // disabled={isButtonDisabled}
+        // disabled={isButtonDisabled()}
         onClick={handleSubmit}
       >
         Entrar
