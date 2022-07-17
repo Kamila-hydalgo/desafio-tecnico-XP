@@ -10,19 +10,18 @@ function Assets() {
   const handleClick = () => {
     navigate('/account');
   };
+
   return (
     <div>
       <Header />
-      <div>
-        <MyAssets />
-        <AllAssets />
-        <button
-          type="button"
-          onClick={handleClick}
-        >
-          Depósito/Retirada
-        </button>
-      </div>
+      <MyAssets />
+      <AllAssets />
+      <button
+        type="button"
+        onClick={handleClick}
+      >
+        Depósito/Retirada
+      </button>
     </div>
   );
 }

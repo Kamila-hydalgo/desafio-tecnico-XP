@@ -2,10 +2,9 @@ import React from 'react';
 import assets from '../../utils/assets.json';
 
 function AllAssets() {
-  console.log(assets);
   return (
     <div>
-      <p>Todas as ações</p>
+      <p>LISTA DE AÇÕES</p>
       <table>
         <thead>
           <tr>
@@ -15,6 +14,28 @@ function AllAssets() {
             <th>Negociar</th>
           </tr>
         </thead>
+        <tbody>
+          { assets.map((asset) => (
+            <tr key={asset.id}>
+              <td>{ asset.asset }</td>
+              <td>{ asset.quantity }</td>
+              <td>{ asset.price }</td>
+              <td>
+                <button
+                  type="button"
+                >
+                  C
+                </button>
+                <button
+                  type="button"
+                  disabled
+                >
+                  V
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
