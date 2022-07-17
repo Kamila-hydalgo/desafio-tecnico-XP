@@ -11,13 +11,13 @@ function TradeAsset() {
 
   return (
     <main>
-      <p>COMPRAR/VENDER AÇÕES</p>
+      <h2>COMPRAR/VENDER AÇÃO</h2>
       <table>
         <thead>
           <tr>
             <th>Ação</th>
             <th>Quantidade</th>
-            <th>Valor</th>
+            <th>Valor (R$)</th>
           </tr>
         </thead>
       </table>
@@ -32,40 +32,23 @@ function TradeAsset() {
       </tbody>
       <form>
         <label htmlFor="buyAsset">
-          <button
-            type="button"
-            id="buyAsset"
-          >
+          <button type="button" name="buyAssetBtn" id="buyAsset">
             Comprar
           </button>
-          <input
-            placeholder="Insira a quantidade"
-            type="text"
-          />
+          <input placeholder="Insira a quantidade" type="text" />
         </label>
         <label htmlFor="sellAsset">
-          <button
-            type="button"
-            id="sellAsset"
-          >
+          <button type="button" id="sellAsset" name="sellAssetBtn">
             Vender
           </button>
-          <input
-            placeholder="Insira a quantidade"
-            type="text"
-          />
+          <input placeholder="Insira a quantidade" type="text" />
         </label>
       </form>
       <div>
-        <button
-          type="button"
-          onClick={() => navigate('/assets')}
-        >
+        <button type="button" name="returnAssetsBtn" onClick={() => navigate('/assets')}>
           Voltar
         </button>
-        <button
-          type="button"
-        >
+        <button type="button" name="confirmTradeBtn">
           Confirmar
         </button>
       </div>

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 import Header from '../../components/Header/Header';
-import { addMoney } from '../../redux/slices/user';
+import { addMoney, withdrawMoney } from '../../redux/slices/user';
 
 function Account() {
   const [incrementAmount, setIncrementAmount] = useState();
@@ -12,12 +13,25 @@ function Account() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const handleChange = ({ target: { value } }) => {
+  // const isSelected = true;
 
-  // };
+  const handleSelect = ({ target: { name } }) => {
+    if (name === 'depositBtn') {
+      // return isSelected;
+      dispatch(addMoney(incrementValue));
+    }
+    if (name === 'withdrawBtn') {
+      // return !isSelected;
+      dispatch(withdrawMoney(incrementValue));
+    }
+    return [];
+  };
 
-  // const decrementAmount = () => {
-  //   if (incrementAmount >= balance) {
+  // const confirmTransaction = () => {
+  //   if (isSelected) {
+  //     dispatch(addMoney(incrementValue));
+  //   }
+  //   if (!isSelected) {
   //     dispatch(withdrawMoney(incrementValue));
   //   }
   // };
@@ -31,35 +45,25 @@ function Account() {
           {balance}
           ,00
         </div>
-        <button
-          type="button"
-          onClick={() => dispatch(addMoney(incrementValue))}
-        >
+        <button type="button" name="depositBtn" onClick={handleSelect}>
           Depósito
         </button>
-        <button
-          type="button"
-          // onClick={decrementAmount}
-        >
+        <button type="button" name="withdrawBtn" onClick={handleSelect}>
           Retirada
         </button>
         <input
           id="value"
+          name="accountValue"
           placeholder="Informe o valor"
           value={incrementAmount}
           onChange={(e) => setIncrementAmount(e.target.value)}
         />
       </div>
       <div>
-        <button
-          type="button"
-          onClick={() => navigate('/assets')}
-        >
+        <button type="button" name="returnAssetsBtn" onClick={() => navigate('/assets')}>
           Voltar
         </button>
-        <button
-          type="button"
-        >
+        <button type="button" name="confirmTransactionBtn">
           Confirmar
         </button>
       </div>

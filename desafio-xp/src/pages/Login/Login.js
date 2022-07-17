@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 import { changeName, changePassword } from '../../redux/slices/user';
 
 function Login() {
@@ -32,7 +33,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <section>
       <form>
         <h1>TradeX</h1>
         <input
@@ -57,7 +58,7 @@ function Login() {
           Entrar
         </button>
       </form>
-    </div>
+    </section>
   );
 }
 
