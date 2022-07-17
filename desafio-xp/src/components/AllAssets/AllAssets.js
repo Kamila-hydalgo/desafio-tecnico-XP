@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import assets from '../../utils/assets.json';
 
 function AllAssets() {
+  const navigate = useNavigate();
+
   return (
     <div>
       <p>LISTA DE AÇÕES</p>
@@ -23,6 +26,7 @@ function AllAssets() {
               <td>
                 <button
                   type="button"
+                  onClick={() => navigate(`${asset.asset}/${asset.id}`)}
                 >
                   C
                 </button>

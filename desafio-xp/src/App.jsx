@@ -8,10 +8,10 @@ import TradeAsset from './pages/TradeAsset/TradeAsset';
 function App() {
   return (
     <Routes>
-      <Route exact path="/" element={<Login />} />
-      <Route exact path="/assets" element={<Assets />} />
-      <Route exac path="/asset/:id" element={<TradeAsset />} />
-      <Route exact path="/account" element={<Account />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/assets" element={<Assets />} />
+      <Route path="/assets/:asset/:id" element={<TradeAsset />} />
+      <Route path="/account" element={<Account />} />
     </Routes>
   );
 }
