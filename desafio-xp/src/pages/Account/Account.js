@@ -6,9 +6,9 @@ import Header from '../../components/Header/Header';
 import { addMoney, withdrawMoney } from '../../redux/slices/user';
 
 function Account() {
-  const [incrementAmount, setIncrementAmount] = useState();
+  const [inputAmount, setInputAmount] = useState();
   const balance = useSelector((state) => state.user.balance);
-  const incrementValue = Number(incrementAmount) || 0;
+  const inputValue = Number(inputAmount) || 0;
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -16,13 +16,13 @@ function Account() {
   // const isSelected = true;
 
   const handleSelect = ({ target: { name } }) => {
-    if (name === 'depositBtn') {
+    if (name === 'depositBtn' && inputValue > 0) {
       // return isSelected;
-      dispatch(addMoney(incrementValue));
+      dispatch(addMoney(inputValue));
     }
-    if (name === 'withdrawBtn') {
+    if (name === 'withdrawBtn' && inputValue > 0 && inputValue <= balance) {
       // return !isSelected;
-      dispatch(withdrawMoney(incrementValue));
+      dispatch(withdrawMoney(inputValue));
     }
     return [];
   };
@@ -55,8 +55,8 @@ function Account() {
           id="value"
           name="accountValue"
           placeholder="Informe o valor"
-          value={incrementAmount}
-          onChange={(e) => setIncrementAmount(e.target.value)}
+          value={inputAmount}
+          onChange={(e) => setInputAmount(e.target.value)}
         />
       </div>
       <div>
