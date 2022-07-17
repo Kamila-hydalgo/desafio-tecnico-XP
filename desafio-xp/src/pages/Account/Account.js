@@ -12,6 +12,10 @@ function Account() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // const handleChange = ({ target: { value } }) => {
+
+  // };
+
   // const decrementAmount = () => {
   //   if (incrementAmount >= balance) {
   //     dispatch(withdrawMoney(incrementValue));
