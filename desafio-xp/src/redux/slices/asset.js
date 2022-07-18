@@ -5,7 +5,7 @@ const initialState = {
 };
 
 export const assetSlice = createSlice({
-  name: 'assets',
+  name: 'asset',
   initialState,
   reducers: {
     buyAsset: (state, action) => {

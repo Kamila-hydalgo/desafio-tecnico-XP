@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import user from './slices/user';
-import assets from './slices/assets';
+import asset from './slices/asset';
 
 export default configureStore({
   reducer: {
     user,
-    assets,
+    asset,
   },
 });

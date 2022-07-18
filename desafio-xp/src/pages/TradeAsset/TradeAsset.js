@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import Header from '../../components/Header/Header';
-import { buyAsset } from '../../redux/slices/assets';
+import { buyAsset } from '../../redux/slices/asset';
 import assets from '../../utils/assets.json';
 
 function TradeAsset() {
@@ -11,27 +11,28 @@ function TradeAsset() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const myAssets = useSelector((state) => state.assets.myAssets);
+  // const myAssets = useSelector((state) => state.asset.myAssets);
   const [buyQuantity, setBuyQuantity] = useState();
   const [sellQuantity, setSellQuantity] = useState();
   const inputBuyValue = Number(buyQuantity) || 0;
   // const inputSellValue = Number(sellQuantity || 0);
 
   const assetSelected = assets.filter((asset) => asset.id === +id);
+  const selected = assetSelected[0];
 
   const selectBuyBtn = () => {
-    let stock;
-    assetSelected.map((asset) => (
-      stock === {
-        id: asset.id,
-        asset: asset.asset,
-        quantity: inputBuyValue,
-        price: asset.price,
-      }
-    ));
-    console.log(stock);
+    const stock = {
+      id: selected.id,
+      asset: selected.asset,
+      quantity: inputBuyValue,
+      price: selected.price,
+    };
 
     return dispatch(buyAsset(stock));
+  };
+
+  const selectSellBtn = () => {
+
   };
 
   return (
@@ -69,7 +70,7 @@ function TradeAsset() {
           />
         </label>
         <label htmlFor="sellAsset">
-          <button type="button" name="sellAssetBtn" id="sellAsset">
+          <button type="button" name="sellAssetBtn" id="sellAsset" onClick={selectSellBtn}>
             Vender
           </button>
           <input
