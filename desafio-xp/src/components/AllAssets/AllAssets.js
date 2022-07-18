@@ -8,7 +8,7 @@ function AllAssets() {
 
   return (
     <div>
-      <p>LISTA DE AÇÕES</p>
+      <h2>LISTA DE AÇÕES</h2>
       <table>
         <thead>
           <tr>
@@ -25,16 +25,10 @@ function AllAssets() {
               <td>{ asset.quantity }</td>
               <td>{ asset.price }</td>
               <td>
-                <button
-                  type="button"
-                  onClick={() => navigate(`${asset.asset}/${asset.id}`)}
-                >
+                <button type="button" onClick={() => navigate(`${asset.asset}/${asset.id}`)}>
                   C
                 </button>
-                <button
-                  type="button"
-                  disabled
-                >
+                <button type="button" disabled>
                   V
                 </button>
               </td>

@@ -1,16 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 
+import Header from '../../components/Header/Header';
+import { buyAsset } from '../../redux/slices/assets';
 import assets from '../../utils/assets.json';
 
 function TradeAsset() {
-  const navigate = useNavigate();
   const { id } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  // const myAssets = useSelector((state) => state.assets.myAssets);
+  const [buyQuantity, setBuyQuantity] = useState();
+  const [sellQuantity, setSellQuantity] = useState();
+  const inputBuyValue = Number(buyQuantity) || 0;
+  // const inputSellValue = Number(sellQuantity || 0);
 
   const assetSelected = assets.filter((asset) => asset.id === +id);
 
+  const selectBuyBtn = () => {
+    let stock;
+    assetSelected.map((asset) => (
+      stock === {
+        id: asset.id,
+        asset: asset.asset,
+        quantity: inputBuyValue,
+        price: asset.price,
+      }
+    ));
+    console.log(stock);
+
+    return dispatch(buyAsset(stock));
+  };
+
   return (
-    <main>
+    <div>
+      <Header />
       <h2>COMPRAR/VENDER AÇÃO</h2>
       <table>
         <thead>
@@ -20,28 +46,38 @@ function TradeAsset() {
             <th>Valor (R$)</th>
           </tr>
         </thead>
+        <tbody>
+          { assetSelected.map((asset) => (
+            <tr key={asset.id}>
+              <td>{ asset.asset }</td>
+              <td>{ asset.quantity }</td>
+              <td>{ asset.price }</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
-      <tbody>
-        { assetSelected.map((asset) => (
-          <tr key={asset.id}>
-            <td>{ asset.asset }</td>
-            <td>{ asset.quantity }</td>
-            <td>{ asset.price }</td>
-          </tr>
-        ))}
-      </tbody>
       <form>
         <label htmlFor="buyAsset">
-          <button type="button" name="buyAssetBtn" id="buyAsset">
+          <button type="button" name="buyAssetBtn" id="buyAsset" onClick={selectBuyBtn}>
             Comprar
           </button>
-          <input placeholder="Insira a quantidade" type="text" />
+          <input
+            type="text"
+            placeholder="Insira a quantidade"
+            value={buyQuantity}
+            onChange={(event) => setBuyQuantity(event.target.value)}
+          />
         </label>
         <label htmlFor="sellAsset">
-          <button type="button" id="sellAsset" name="sellAssetBtn">
+          <button type="button" name="sellAssetBtn" id="sellAsset">
             Vender
           </button>
-          <input placeholder="Insira a quantidade" type="text" />
+          <input
+            placeholder="Insira a quantidade"
+            type="text"
+            value={sellQuantity}
+            onChange={(event) => setSellQuantity(event.target.value)}
+          />
         </label>
       </form>
       <div>
@@ -52,7 +88,7 @@ function TradeAsset() {
           Confirmar
         </button>
       </div>
-    </main>
+    </div>
   );
 }
 

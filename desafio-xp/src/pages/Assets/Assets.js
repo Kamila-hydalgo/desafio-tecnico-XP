@@ -8,20 +8,13 @@ import AllAssets from '../../components/AllAssets/AllAssets';
 function Assets() {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate('/account');
-  };
-
   return (
     <div>
       <Header />
       <MyAssets />
       <AllAssets />
       <div>
-        <button
-          type="button"
-          onClick={handleClick}
-        >
+        <button type="button" name="goAccountBtn" onClick={() => navigate('/account')}>
           Depósito/Retirada
         </button>
       </div>
