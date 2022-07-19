@@ -18,8 +18,6 @@ function TradeAsset() {
 
   const [buyQuantity, setBuyQuantity] = useState();
   const [sellQuantity, setSellQuantity] = useState();
-  const inputBuyValue = Number(buyQuantity) || 0;
-  const inputSellValue = Number(sellQuantity || 0);
 
   const assetSelected = assets.filter((asset) => asset.id === +id);
   const selected = assetSelected[0];
@@ -30,23 +28,28 @@ function TradeAsset() {
     const stock = {
       id: selected.id,
       asset: selected.asset,
-      quantity: inputBuyValue,
+      quantity: +buyQuantity,
       price: selected.price,
     };
 
-    dispatch(buyAsset(stock));
-    dispatch(withdrawMoney(stock.price * stock.quantity));
+    if (balance >= (stock.price * stock.quantity)) {
+      dispatch(buyAsset(stock));
+      dispatch(withdrawMoney(stock.price * stock.quantity));
+    }
   };
 
   const selectSellBtn = () => {
     const stock = {
       id: selected.id,
       asset: selected.asset,
-      quantity: inputSellValue,
+      quantity: +sellQuantity,
       price: selected.price,
     };
 
-    if (inputSellValue && inputSellValue <= selected.quantity) {
+    const teste = myAssets.filter((asset) => asset.id === +id);
+    const avaiableQuant = teste[0].quantity;
+
+    if (avaiableQuant && +sellQuantity <= avaiableQuant) {
       dispatch(sellAsset(stock));
       dispatch(addMoney(stock.price * stock.quantity));
     }

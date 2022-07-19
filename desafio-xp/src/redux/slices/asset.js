@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import assets from '../../utils/assets.json';
 
 const initialState = {
   myAsset: [],
+  allAssets: assets,
 };
 
 export const assetSlice = createSlice({
