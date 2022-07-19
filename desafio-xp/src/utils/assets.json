@@ -2,61 +2,61 @@
   {
     "id": 1,
     "asset": "JALL3 ",
-    "quantity": 100,
+    "quantity": 1000,
     "price":  7 
   },
   {
     "id": 2,
     "asset": "IRBR3",
-    "quantity": 100,
+    "quantity": 1000,
     "price":  2
   },
   {
     "id": 3,
     "asset": "ENJU3 ",
-    "quantity": 100,
+    "quantity": 1000,
     "price":  1
   },
   {
     "id": 4,
     "asset": "B3SA3",
-    "quantity": 100,
+    "quantity": 1000,
     "price":  10
   },
   {
     "id": 5,
     "asset": "CPLE6 ",
-    "quantity": 100,
+    "quantity": 1000,
     "price":  7
   },
   {
     "id": 6,
     "asset": "EGIE3",
-    "quantity": 100,
+    "quantity": 1000,
     "price":  42
   },
   {
     "id": 7,
     "asset": "AZUL4",
-    "quantity": 100,
+    "quantity": 1000,
     "price":  12
   },
   {
     "id": 8,
     "asset": "MOVI3",
-    "quantity": 100,
+    "quantity": 1000,
     "price":  12
   },
   {
     "id": 9,
     "asset": "CSAN3",
-    "quantity": 100,
+    "quantity": 1000,
     "price":  17
   },
   {
     "id": 10,
     "asset": "RDOR3",
-    "quantity": 100,
+    "quantity": 1000,
     "price":  27
   }
 ]

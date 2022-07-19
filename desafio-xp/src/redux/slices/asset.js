@@ -9,10 +9,20 @@ export const assetSlice = createSlice({
   initialState,
   reducers: {
     buyAsset: (state, action) => {
-      state.myAsset.push(action.payload);
+      const findAsset = state.myAsset.find((asset) => asset.id === action.payload.id);
+      if (findAsset) {
+        findAsset.quantity += action.payload.quantity;
+      } else {
+        state.myAsset.push(action.payload);
+      }
     },
-    sellAsset: (state, action) => {
-      state.myAsset = state.myAsset.filter((asset) => (!(asset.id === action.payload.id)));
+    sellAsset: (state, { payload }) => {
+      const findAsset = state.myAsset.find((asset) => asset.id === payload.id);
+      if (findAsset) {
+        findAsset.quantity -= payload.quantity;
+      } else {
+        state.myAsset.push(payload);
+      }
     },
   },
 });

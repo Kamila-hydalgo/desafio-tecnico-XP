@@ -46,8 +46,10 @@ function TradeAsset() {
       price: selected.price,
     };
 
-    dispatch(sellAsset(stock));
-    dispatch(addMoney(stock.price * stock.quantity));
+    if (inputSellValue && inputSellValue <= selected.quantity) {
+      dispatch(sellAsset(stock));
+      dispatch(addMoney(stock.price * stock.quantity));
+    }
   };
 
   return (
@@ -91,17 +93,9 @@ function TradeAsset() {
           />
         </label>
         <label htmlFor="sellAsset">
-          { hasAsset
-            ? (
-              <button type="button" name="sellAssetBtn" id="sellAsset" onClick={selectSellBtn}>
-                Vender
-              </button>
-            )
-            : (
-              <button type="button" name="sellAssetBtn" id="sellAsset" disabled>
-                Vender
-              </button>
-            )}
+          <button type="button" name="sellAssetBtn" id="sellAsset" onClick={selectSellBtn} disabled={hasAsset ? '' : 'disabled'}>
+            Vender
+          </button>
           <input
             placeholder="Insira a quantidade"
             type="text"
