@@ -41,9 +41,8 @@ function Account() {
       <Header />
       <div>
         <div>
-          Saldo: R$: $
-          {balance}
-          ,00
+          Saldo:
+          {balance.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
         </div>
         <button type="button" name="depositBtn" onClick={handleSelect}>
           Depósito

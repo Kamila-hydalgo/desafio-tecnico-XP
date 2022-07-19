@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import Header from '../../components/Header/Header';
-import { buyAsset } from '../../redux/slices/asset';
+import { buyAsset, sellAsset } from '../../redux/slices/asset';
+import { addMoney, withdrawMoney } from '../../redux/slices/user';
 import assets from '../../utils/assets.json';
 
 function TradeAsset() {
@@ -11,14 +12,19 @@ function TradeAsset() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const myAssets = useSelector((state) => state.asset.myAssets);
+  const objAssets = useSelector((state) => state.asset);
+  const balance = useSelector((state) => state.user.balance);
+  const myAssets = objAssets.myAsset;
+
   const [buyQuantity, setBuyQuantity] = useState();
   const [sellQuantity, setSellQuantity] = useState();
   const inputBuyValue = Number(buyQuantity) || 0;
-  // const inputSellValue = Number(sellQuantity || 0);
+  const inputSellValue = Number(sellQuantity || 0);
 
   const assetSelected = assets.filter((asset) => asset.id === +id);
   const selected = assetSelected[0];
+
+  const hasAsset = myAssets.some((asset) => id.includes(asset.id));
 
   const selectBuyBtn = () => {
     const stock = {
@@ -28,17 +34,32 @@ function TradeAsset() {
       price: selected.price,
     };
 
-    return dispatch(buyAsset(stock));
+    dispatch(buyAsset(stock));
+    dispatch(withdrawMoney(stock.price * stock.quantity));
   };
 
   const selectSellBtn = () => {
+    const stock = {
+      id: selected.id,
+      asset: selected.asset,
+      quantity: inputSellValue,
+      price: selected.price,
+    };
 
+    dispatch(sellAsset(stock));
+    dispatch(addMoney(stock.price * stock.quantity));
   };
 
   return (
     <div>
       <Header />
       <h2>COMPRAR/VENDER AÇÃO</h2>
+      <p>
+        {' '}
+        Saldo disponível:
+        {' '}
+        {balance.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
+      </p>
       <table>
         <thead>
           <tr>
@@ -70,9 +91,17 @@ function TradeAsset() {
           />
         </label>
         <label htmlFor="sellAsset">
-          <button type="button" name="sellAssetBtn" id="sellAsset" onClick={selectSellBtn}>
-            Vender
-          </button>
+          { hasAsset
+            ? (
+              <button type="button" name="sellAssetBtn" id="sellAsset" onClick={selectSellBtn}>
+                Vender
+              </button>
+            )
+            : (
+              <button type="button" name="sellAssetBtn" id="sellAsset" disabled>
+                Vender
+              </button>
+            )}
           <input
             placeholder="Insira a quantidade"
             type="text"

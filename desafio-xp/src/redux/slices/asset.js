@@ -11,9 +11,12 @@ export const assetSlice = createSlice({
     buyAsset: (state, action) => {
       state.myAsset.push(action.payload);
     },
+    sellAsset: (state, action) => {
+      state.myAsset = state.myAsset.filter((asset) => (!(asset.id === action.payload.id)));
+    },
   },
 });
 
-export const { buyAsset } = assetSlice.actions;
+export const { buyAsset, sellAsset } = assetSlice.actions;
 
 export default assetSlice.reducer;
