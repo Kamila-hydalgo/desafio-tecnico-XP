@@ -29,16 +29,27 @@ export const assetSlice = createSlice({
     removeAsset: (state, { payload }) => {
       state.myAsset = state.myAsset.filter((asset) => (!(asset.id === payload.id)));
     },
-    // decreaseAssetQnt: (state, { payload }) => {
-    //   const teste = state.allAssets.find((asset) => asset.id === payload.id);
-    //   if (teste) {
-    //     teste.quantity -= payload.quantity;
-    //   }
-    //   return teste;
-    // };
+    decreaseAssetQnt: (state, { payload }) => {
+      const teste = state.allAssets.find((asset) => asset.id === payload.id);
+      if (teste) {
+        teste.quantity -= payload.quantity;
+      } else {
+        state.myAsset.push(payload);
+      }
+    },
+    increaseAssetQnt: (state, { payload }) => {
+      const teste = state.allAssets.find((asset) => asset.id === payload.id);
+      if (teste) {
+        teste.quantity += payload.quantity;
+      } else {
+        state.myAsset.push(payload);
+      }
+    },
   },
 });
 
-export const { buyAsset, sellAsset, removeAsset } = assetSlice.actions;
+export const {
+  buyAsset, sellAsset, removeAsset, decreaseAssetQnt, increaseAssetQnt,
+} = assetSlice.actions;
 
 export default assetSlice.reducer;
