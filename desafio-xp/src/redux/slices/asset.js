@@ -26,9 +26,19 @@ export const assetSlice = createSlice({
         state.myAsset.push(payload);
       }
     },
+    removeAsset: (state, { payload }) => {
+      state.myAsset = state.myAsset.filter((asset) => (!(asset.id === payload.id)));
+    },
+    // decreaseAssetQnt: (state, { payload }) => {
+    //   const teste = state.allAssets.find((asset) => asset.id === payload.id);
+    //   if (teste) {
+    //     teste.quantity -= payload.quantity;
+    //   }
+    //   return teste;
+    // };
   },
 });
 
-export const { buyAsset, sellAsset } = assetSlice.actions;
+export const { buyAsset, sellAsset, removeAsset } = assetSlice.actions;
 
 export default assetSlice.reducer;

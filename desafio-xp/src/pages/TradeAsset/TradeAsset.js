@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import Header from '../../components/Header/Header';
-import { buyAsset, sellAsset } from '../../redux/slices/asset';
+import { buyAsset, sellAsset, removeAsset } from '../../redux/slices/asset';
 import { addMoney, withdrawMoney } from '../../redux/slices/user';
-import assets from '../../utils/assets.json';
 
 function TradeAsset() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const AllAssets = useSelector((state) => state.asset.allAssets);
   const objAssets = useSelector((state) => state.asset);
   const balance = useSelector((state) => state.user.balance);
   const myAssets = objAssets.myAsset;
@@ -19,7 +19,7 @@ function TradeAsset() {
   const [buyQuantity, setBuyQuantity] = useState();
   const [sellQuantity, setSellQuantity] = useState();
 
-  const assetSelected = assets.filter((asset) => asset.id === +id);
+  const assetSelected = AllAssets.filter((asset) => asset.id === +id);
   const selected = assetSelected[0];
 
   const hasAsset = myAssets.some((asset) => id.includes(asset.id));
@@ -49,7 +49,10 @@ function TradeAsset() {
     const teste = myAssets.filter((asset) => asset.id === +id);
     const avaiableQuant = teste[0].quantity;
 
-    if (avaiableQuant && +sellQuantity <= avaiableQuant) {
+    if (avaiableQuant && +sellQuantity === avaiableQuant) {
+      dispatch(removeAsset(stock));
+    }
+    if (avaiableQuant && +sellQuantity < avaiableQuant) {
       dispatch(sellAsset(stock));
       dispatch(addMoney(stock.price * stock.quantity));
     }
