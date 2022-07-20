@@ -26,10 +26,7 @@ export const userSlice = createSlice({
 });
 
 export const {
-  changeName,
-  changePassword,
-  addMoney,
-  withdrawMoney,
+  changeName, changePassword, addMoney, withdrawMoney,
 } = userSlice.actions;
 
 export default userSlice.reducer;
