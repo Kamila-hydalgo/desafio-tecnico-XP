@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import Header from '../../components/Header/Header';
+import { addMoney, withdrawMoney } from '../../redux/slices/user';
 import {
   buyAsset, sellAsset, removeAsset, decreaseAssetQnt, increaseAssetQnt,
 } from '../../redux/slices/asset';
-import { addMoney, withdrawMoney } from '../../redux/slices/user';
 
 function TradeAsset() {
   const { id } = useParams();
@@ -14,9 +14,9 @@ function TradeAsset() {
   const navigate = useNavigate();
 
   const AllAssets = useSelector((state) => state.asset.allAssets);
+  const balance = useSelector((state) => state.user.balance);
   const objAssets = useSelector((state) => state.asset);
   const myAssets = objAssets.myAsset;
-  const balance = useSelector((state) => state.user.balance);
 
   const [buyQuantity, setBuyQuantity] = useState();
   const [sellQuantity, setSellQuantity] = useState();
@@ -54,6 +54,7 @@ function TradeAsset() {
 
     if (avaiableQuant && +sellQuantity === avaiableQuant) {
       dispatch(increaseAssetQnt(stock));
+      dispatch(addMoney(stock.price * stock.quantity));
       dispatch(removeAsset(stock));
     }
     if (avaiableQuant && +sellQuantity < avaiableQuant) {

@@ -2,12 +2,13 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import assets from '../../utils/assets.json';
+import * as S from './style';
 
 function AllAssets() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <S.Container>
       <h2>LISTA DE AÇÕES</h2>
       <table>
         <thead>
@@ -36,7 +37,7 @@ function AllAssets() {
           ))}
         </tbody>
       </table>
-    </div>
+    </S.Container>
   );
 }
 

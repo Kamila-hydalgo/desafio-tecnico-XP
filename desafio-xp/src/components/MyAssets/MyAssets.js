@@ -2,13 +2,15 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import * as S from './style';
+
 function MyAssets() {
   const navigate = useNavigate();
   const objAssets = useSelector((state) => state.asset);
   const myAssets = objAssets.myAsset;
 
   return (
-    <div>
+    <S.Container>
       <h2>MINHAS AÇÕES</h2>
       <table>
         <thead>
@@ -36,7 +38,7 @@ function MyAssets() {
           ))}
         </tbody>
       </table>
-    </div>
+    </S.Container>
   );
 }
 

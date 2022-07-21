@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Header from '../../components/Header/Header';
 import { addMoney, withdrawMoney } from '../../redux/slices/user';
+import * as S from './style';
 
 function Account() {
   const [inputAmount, setInputAmount] = useState();
@@ -37,19 +38,19 @@ function Account() {
   // };
 
   return (
-    <div>
+    <S.Container>
       <Header />
-      <div>
-        <div>
-          Saldo:
+      <S.Content>
+        <p>
+          Saldo Disponível:
           {balance.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
-        </div>
-        <button type="button" name="depositBtn" onClick={handleSelect}>
+        </p>
+        <S.Button type="button" className="depositBtn" name="depositBtn" onClick={handleSelect}>
           Depósito
-        </button>
-        <button type="button" name="withdrawBtn" onClick={handleSelect}>
+        </S.Button>
+        <S.Button type="button" className="withdrawBtn" name="withdrawBtn" onClick={handleSelect}>
           Retirada
-        </button>
+        </S.Button>
         <input
           id="value"
           name="accountValue"
@@ -57,16 +58,16 @@ function Account() {
           value={inputAmount}
           onChange={(e) => setInputAmount(e.target.value)}
         />
-      </div>
+      </S.Content>
       <div>
-        <button type="button" name="returnAssetsBtn" onClick={() => navigate('/assets')}>
+        <S.Button type="button" className="returnBtn" name="returnAssetsBtn" onClick={() => navigate('/assets')}>
           Voltar
-        </button>
-        <button type="button" name="confirmTransactionBtn">
+        </S.Button>
+        <S.Button type="button" className="confirmBtn" name="confirmTransactionBtn">
           Confirmar
-        </button>
+        </S.Button>
       </div>
-    </div>
+    </S.Container>
   );
 }
 

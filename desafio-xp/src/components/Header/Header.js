@@ -1,17 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import * as S from './style';
 
 function Header() {
   const user = useSelector((state) => state.user.email);
 
   return (
-    <div>
-      <div>
-        Usuário:
+    <S.Container>
+      <h5>Trade-X</h5>
+      <S.User>
+        Olá,
         {' '}
         { user }
-      </div>
-    </div>
+      </S.User>
+    </S.Container>
   );
 }
 
