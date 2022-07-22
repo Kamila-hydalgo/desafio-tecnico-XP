@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 
+import toast, { Toaster } from 'react-hot-toast';
 import Header from '../../components/Header/Header';
 import { addMoney, withdrawMoney } from '../../redux/slices/user';
 import {
@@ -34,10 +35,14 @@ function TradeAsset() {
       price: selected.price,
     };
 
+    if (balance < (stock.price * stock.quantity)) {
+      toast.error('Seu saldo não é suficiente para realizar essa compra');
+    }
     if (balance >= (stock.price * stock.quantity)) {
       dispatch(buyAsset(stock));
       dispatch(withdrawMoney(stock.price * stock.quantity));
       dispatch(decreaseAssetQnt(stock));
+      toast.success(`Compra de ${stock.quantity} unidades do ativo ${stock.asset} realizada com sucesso`);
     }
   };
 
@@ -49,18 +54,20 @@ function TradeAsset() {
       price: selected.price,
     };
 
-    const teste = myAssets.filter((asset) => asset.id === +id);
-    const avaiableQuant = teste[0].quantity;
+    const selectedAsset = myAssets.filter((asset) => asset.id === +id);
+    const avaiableQuant = selectedAsset[0].quantity;
 
     if (avaiableQuant && +sellQuantity === avaiableQuant) {
       dispatch(increaseAssetQnt(stock));
       dispatch(addMoney(stock.price * stock.quantity));
       dispatch(removeAsset(stock));
+      toast.success(`Venda de ${stock.quantity} unidades do ativo ${stock.asset} realizada com sucesso`);
     }
     if (avaiableQuant && +sellQuantity < avaiableQuant) {
       dispatch(sellAsset(stock));
       dispatch(addMoney(stock.price * stock.quantity));
       dispatch(increaseAssetQnt(stock));
+      toast.success(`Venda de ${stock.quantity} unidades do ativo ${stock.asset} realizada com sucesso`);
     }
   };
 
@@ -120,10 +127,8 @@ function TradeAsset() {
         <button type="button" name="returnAssetsBtn" onClick={() => navigate('/assets')}>
           Voltar
         </button>
-        <button type="button" name="confirmTradeBtn">
-          Confirmar
-        </button>
       </div>
+      <Toaster />
     </div>
   );
 }

@@ -71,7 +71,6 @@ function Login() {
       <S.Aside>
         <img src={Logo} alt="Imagem gráfico de trade" />
       </S.Aside>
-      <Toaster />
     </S.Container>
   );
 }
