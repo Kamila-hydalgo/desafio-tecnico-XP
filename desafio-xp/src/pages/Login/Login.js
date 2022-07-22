@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 // import toast, { Toaster } from 'react-hot-toast';
 import { changeName } from '../../redux/slices/user';
 import * as S from './style';
-import Logo from '../../images/logoLogin1.svg';
+import Logo from '../../images/loginLogo.svg';
+import LogoRico from '../../images/logo-rico.svg';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -37,7 +38,7 @@ function Login() {
   return (
     <S.Container>
       <S.Content>
-        <h1>Trade-X</h1>
+        <img src={LogoRico} alt="logotipo rico investimentos" />
         <form>
           <label htmlFor="email">
             <input

@@ -44,13 +44,18 @@ function Account() {
         <S.Button type="button" className="withdrawBtn" name="withdrawBtn" onClick={handleSelect}>
           Saque
         </S.Button>
-        <input
-          id="value"
-          name="accountValue"
-          placeholder="Informe o valor"
-          value={inputAmount}
-          onChange={(e) => setInputAmount(e.target.value)}
-        />
+        <form>
+          <label htmlFor="accountValue">
+            <input
+              id="value"
+              name="accountValue"
+              placeholder="Informe o valor"
+              value={inputAmount}
+              onChange={(e) => setInputAmount(e.target.value)}
+            />
+          </label>
+        </form>
+
       </S.Content>
       <div>
         <S.Button type="button" className="returnBtn" name="returnAssetsBtn" onClick={() => navigate('/assets')}>

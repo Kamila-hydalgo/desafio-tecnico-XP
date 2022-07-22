@@ -9,13 +9,13 @@ function AllAssets() {
 
   return (
     <S.Container>
-      <h2>LISTA DE AÇÕES</h2>
-      <table>
+      <h3>LISTA DE AÇÕES</h3>
+      <S.Table>
         <thead>
           <tr>
             <th>Ação</th>
             <th>Quantidade</th>
-            <th>Valor</th>
+            <th>Valor (R$)</th>
             <th>Negociar</th>
           </tr>
         </thead>
@@ -24,19 +24,19 @@ function AllAssets() {
             <tr key={asset.id}>
               <td>{ asset.asset }</td>
               <td>{ asset.quantity }</td>
-              <td>{ asset.price }</td>
+              <td>{ (asset.price).toFixed(2) }</td>
               <td>
-                <button type="button" onClick={() => navigate(`${asset.asset}/${asset.id}`)}>
+                <S.Button type="button" onClick={() => navigate(`${asset.asset}/${asset.id}`)}>
                   C
-                </button>
-                <button type="button" disabled>
+                </S.Button>
+                <S.ButtonDisabled type="button" disabled>
                   V
-                </button>
+                </S.ButtonDisabled>
               </td>
             </tr>
           ))}
         </tbody>
-      </table>
+      </S.Table>
     </S.Container>
   );
 }

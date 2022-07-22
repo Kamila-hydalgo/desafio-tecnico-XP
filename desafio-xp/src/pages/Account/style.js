@@ -16,40 +16,57 @@ export const Content = styled.div`
   p {
     margin: 20px 20 40px;
     font-size: 26px;
-    color: #FFFFFF;
+    font-weight: bold;
+    color: #060A28;
     padding: 20px;
   }
-  input {
+  
+  form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      font-size: 18px;
+      color: #C4C4D2;
+
+      input {
         height: 55px;
-        margin: 20px 0 70px;
+        width: 200px;
+        margin: 20px 50px 20px;
         outline: none;
         background-color: transparent;
-        border: 2px solid #ffffff40;
+        border: 2px solid #060A28;
         border-radius: 10px;
-        color: #ffffff40;
+        color: #060A28;
         font-size: 16px;
-        padding: 20px;
+        padding-left: 20px;
         transition: all 0.4s ease-in-out;
 
         ::placeholder {
-          color: #ffffff40;
+          color: #060A28;
+          font-weight: bold;
         }
 
         :hover {
-          border: 2px solid #F6C103;
-          color: #F7C606;
+          border: 2px solid #E74F19;
+          color: #E74F19;
         }
         :focus {
-          border: 2px solid #F6C103;
-          color: #F7C606;
+          border: 2px solid #E74F19;
+          color: #060A28;
         }
       }
+    }
+  }
 `;
 
 export const Button = styled.button`
   width: 200px;
   height: 50px;
-  background-color: #F6C103;
+  background-color: #C14113;
   border: none;
   border-radius: 10px;
   color: #fff;
@@ -59,15 +76,9 @@ export const Button = styled.button`
   margin: 15px;
 
   :hover {
-    background-color: #F7C606;
+    background-color: #C14113;
   }
   :active {
     background-color: #222222;
-  }
-
-  :disabled {
-    background-color: #ffe2ed;
-    color: #00000040;
-    cursor: not-allowed;
   }
 `;

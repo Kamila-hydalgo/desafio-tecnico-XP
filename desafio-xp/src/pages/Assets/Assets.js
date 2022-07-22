@@ -4,21 +4,22 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import MyAssets from '../../components/MyAssets/MyAssets';
 import AllAssets from '../../components/AllAssets/AllAssets';
+import * as S from './style';
 
 function Assets() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <S.Container>
       <Header />
       <MyAssets />
       <AllAssets />
-      <div>
-        <button type="button" name="goAccountBtn" onClick={() => navigate('/account')}>
-          Depósito/Retirada
-        </button>
-      </div>
-    </div>
+      <S.ContentButton>
+        <S.Button type="button" name="goAccountBtn" onClick={() => navigate('/account')}>
+          Depósito/Saque
+        </S.Button>
+      </S.ContentButton>
+    </S.Container>
   );
 }
 

@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import * as S from './style';
+import Logo from '../../images/logo-rico.svg';
 
 function Header() {
   const user = useSelector((state) => state.user.email);
 
   return (
     <S.Container>
-      <h5>Trade-X</h5>
+      <img src={Logo} alt="logotipo rico investimentos" />
       <S.User>
         Olá,
         {' '}

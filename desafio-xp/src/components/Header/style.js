@@ -12,7 +12,7 @@ export const Container = styled.header`
   align-items: center;
 
   h5 {
-    color: #F6C103;
+    color: #C14113;
     display: flex;
     font-size: 35px;
     font-weight: 100;

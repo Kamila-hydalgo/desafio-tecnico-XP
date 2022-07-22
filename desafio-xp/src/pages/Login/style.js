@@ -35,10 +35,8 @@ export const Content = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  h1 {
-    color: #F6C103;
-    font-size: 50px;
-    font-weight: 900;
+  img {
+    width: calc(100% - 300px)
   }
 
   form {
@@ -50,7 +48,7 @@ export const Content = styled.div`
       display: flex;
       flex-direction: column;
       font-size: 18px;
-      color: #ffffff90;
+      color: #C4C4D2;
 
       input {
         height: 55px;
@@ -69,12 +67,12 @@ export const Content = styled.div`
         }
 
         :hover {
-          border: 2px solid #F6C103;
-          color: #F7C606;
+          border: 2px solid #E74F19;
+          color: #E74F19;
         }
         :focus {
-          border: 2px solid #F6C103;
-          color: #F7C606;
+          border: 2px solid #E74F19;
+          color: #C4C4D2;
         }
       }
     }
@@ -83,7 +81,7 @@ export const Content = styled.div`
 export const Button = styled.button`
   width: 100%;
   height: 55px;
-  background-color: #F6C103;
+  background-color: #C14113;
   border: none;
   border-radius: 10px;
   color: #fff;
@@ -92,10 +90,10 @@ export const Button = styled.button`
   transition: all 0.2s ease-in;
 
   :hover {
-    background-color: #F7C606;
+    background-color: #C14113;
   }
   :active {
-    background-color: #222222;
+    background-color: #C4C4D2;
   }
 
   :disabled {
