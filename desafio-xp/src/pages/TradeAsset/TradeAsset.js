@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import toast, { Toaster } from 'react-hot-toast';
+import * as S from './style';
 import Header from '../../components/Header/Header';
 import { addMoney, withdrawMoney } from '../../redux/slices/user';
 import {
@@ -72,16 +73,16 @@ function TradeAsset() {
   };
 
   return (
-    <div>
+    <S.Container>
       <Header />
-      <h2>COMPRAR/VENDER AÇÃO</h2>
+      <h2>HOME BROKER</h2>
       <p>
         {' '}
         Saldo disponível:
         {' '}
         {balance.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
       </p>
-      <table>
+      <S.Table>
         <thead>
           <tr>
             <th>Ação</th>
@@ -98,12 +99,12 @@ function TradeAsset() {
             </tr>
           ))}
         </tbody>
-      </table>
+      </S.Table>
       <form>
         <label htmlFor="buyAsset">
-          <button type="button" name="buyAssetBtn" id="buyAsset" onClick={selectBuyBtn}>
+          <S.Button type="button" name="buyAssetBtn" id="buyAsset" onClick={selectBuyBtn}>
             Comprar
-          </button>
+          </S.Button>
           <input
             type="text"
             placeholder="Insira a quantidade"
@@ -112,9 +113,9 @@ function TradeAsset() {
           />
         </label>
         <label htmlFor="sellAsset">
-          <button type="button" name="sellAssetBtn" id="sellAsset" onClick={selectSellBtn} disabled={hasAsset ? '' : 'disabled'}>
+          <S.Button type="button" name="sellAssetBtn" id="sellAsset" onClick={selectSellBtn} disabled={hasAsset ? '' : 'disabled'}>
             Vender
-          </button>
+          </S.Button>
           <input
             placeholder="Insira a quantidade"
             type="text"
@@ -129,7 +130,7 @@ function TradeAsset() {
         </button>
       </div>
       <Toaster />
-    </div>
+    </S.Container>
   );
 }
 

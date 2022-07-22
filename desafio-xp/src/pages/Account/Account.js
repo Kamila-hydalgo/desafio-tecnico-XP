@@ -55,7 +55,6 @@ function Account() {
             />
           </label>
         </form>
-
       </S.Content>
       <div>
         <S.Button type="button" className="returnBtn" name="returnAssetsBtn" onClick={() => navigate('/assets')}>

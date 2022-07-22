@@ -6,17 +6,17 @@ background-color: #C4C4D2;
 export const ContentButton = styled.div`
 align-items: center;
 justify-content: center;
-margin-left: 550px;
+margin-left: 580px;
 margin-top: 70px;
 `;
 export const Button = styled.button`
   width: 200px;
-  height: 55px;
+  height: 50px;
   background-color: #C14113;
   border: none;
   border-radius: 10px;
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   transition: all 0.2s ease-in;
 

@@ -29,10 +29,10 @@ function MyAssets() {
               <td>{ (asset.price).toFixed(2) }</td>
               <td>
                 <S.Button type="button" onClick={() => navigate(`${asset.asset}/${asset.id}`)}>
-                  C
+                  Comprar
                 </S.Button>
                 <S.Button type="button" onClick={() => navigate(`${asset.asset}/${asset.id}`)}>
-                  V
+                  Vender
                 </S.Button>
               </td>
             </tr>

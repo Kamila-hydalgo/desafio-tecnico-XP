@@ -13,6 +13,7 @@ function Header() {
         Olá,
         {' '}
         { user }
+        !
       </S.User>
     </S.Container>
   );

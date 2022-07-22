@@ -14,18 +14,25 @@ align-items: center;
 `;
 
 export const Table = styled.table`
-align-items: center;
+text-align: center;
 margin-top: 30px;
+width: 60%;
+table-layout: fixed;
+border-collapse: collapse;
 
-th, td {
+th {
   color: #060A28;
   background-color: #E74F19;
+}
+td {
+  color: #E74F19;
 }
 `;
 
 export const Button = styled.button`
   padding: 0.9em 1.5em;
-  font-size: 12px;
+  margin: 10px;
+  font-size: 10px;
   text-transform: uppercase;
   font-weight: bold;
   color: #E74F19;
@@ -39,7 +46,6 @@ export const Button = styled.button`
 
   hover {
   background-color: #060A28;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   transform: translateY(-7px);
 }

@@ -6,21 +6,24 @@ flex-direction: column;
 flex-wrap: wrap;
 align-items: center;
 
-  h3 {
+  h2 {
     color: #060A28;
     margin-top: 25px;
     justify-content: space-around;
   }
-  `;
-
-export const Content = styled.table`
-align-items: center;
+  
+  p {
+    color: #060A28;
+    margin: 30px;
+    font-size: 20px;
+    font-weight: bold;
+  }
 `;
 
 export const Table = styled.table`
 text-align: center;
 margin-top: 30px;
-width: 60%;
+width: 45%;
 table-layout: fixed;
 border-collapse: collapse;
 
@@ -44,29 +47,17 @@ export const Button = styled.button`
   border: none;
   border-radius: 10px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease-in;
+  transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
 
   hover {
-  background-color: #E74F19;
+  background-color: #060A28;
   color: #fff;
   transform: translateY(-7px);
 }
 
-`;
-
-export const ButtonDisabled = styled.button`
-  padding: 0.9em 1.5em;
-  margin: 30 px;
-  font-size: 10px;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #E74F19;
-  background-color: #C4C4D2;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  outline: none;
+  active {
+  transform: translateY(-1px);
+}
 `;

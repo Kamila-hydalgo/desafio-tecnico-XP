@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export const Content = styled.div`
   width: calc(100vw - 580px);
   margin-top: 50px;
   margin-left: 60px;
+  align-items: center;
+  /* border: solid #060A28 1px */
 
 
   p {
@@ -35,7 +38,7 @@ export const Content = styled.div`
       input {
         height: 55px;
         width: 200px;
-        margin: 20px 50px 20px;
+        margin: 20px 120px 20px;
         outline: none;
         background-color: transparent;
         border: 2px solid #060A28;
