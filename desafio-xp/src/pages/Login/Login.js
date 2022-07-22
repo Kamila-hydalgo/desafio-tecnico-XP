@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { changeName, changePassword } from '../../redux/slices/user';
+// import toast, { Toaster } from 'react-hot-toast';
+import { changeName } from '../../redux/slices/user';
 import * as S from './style';
 import Logo from '../../images/logoLogin1.svg';
 
@@ -29,7 +30,6 @@ function Login() {
     event.preventDefault();
 
     dispatch(changeName(email));
-    dispatch(changePassword(password));
 
     navigate('/assets');
   };
@@ -71,6 +71,7 @@ function Login() {
       <S.Aside>
         <img src={Logo} alt="Imagem gráfico de trade" />
       </S.Aside>
+      <Toaster />
     </S.Container>
   );
 }
