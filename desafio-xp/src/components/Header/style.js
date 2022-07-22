@@ -9,6 +9,7 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: flex-end;
   padding: 50px;
+  align-items: center;
 
   h5 {
     color: #F6C103;
