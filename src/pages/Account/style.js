@@ -1,33 +1,48 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+
+  h2 {
+    color: #060A28;
+    margin-top: 25px;
+  }
+
+  section {
+    padding: 20px;
+  }
 `;
 
 export const Content = styled.div`
-  width: calc(100vw - 580px);
-  margin-top: 50px;
-  margin-left: 60px;
   align-items: center;
-  /* border: solid #060A28 1px */
-
+  margin-top: 30px;
+  justify-content: center;
 
   p {
-    margin: 20px 20 40px;
-    font-size: 26px;
-    font-weight: bold;
     color: #060A28;
+    border: solid #E74F19 2px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
     padding: 20px;
+    text-align: center;
   }
   
   form {
-    width: 80%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+
+    div {
+      display: flex;
+      justify-content: center;
+    }
 
     label {
       display: flex;
@@ -36,20 +51,23 @@ export const Content = styled.div`
       color: #C4C4D2;
 
       input {
-        height: 55px;
-        width: 200px;
-        margin: 20px 120px 20px;
-        outline: none;
+        align-items: center;
+        justify-content: center;
         background-color: transparent;
         border: 2px solid #060A28;
         border-radius: 10px;
         color: #060A28;
         font-size: 16px;
+        height: 45px;
+        margin: 20px 0 30px;
+        outline: none;
         padding-left: 20px;
         transition: all 0.4s ease-in-out;
+        width: 310px;
 
         ::placeholder {
           color: #060A28;
+          font-size: 15px;
           font-weight: bold;
         }
 
@@ -67,21 +85,41 @@ export const Content = styled.div`
 `;
 
 export const Button = styled.button`
-  width: 200px;
-  height: 50px;
   background-color: #C14113;
   border: none;
   border-radius: 10px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   color: #fff;
   font-size: 20px;
   font-weight: 500;
-  transition: all 0.2s ease-in;
+  height: 45px;
   margin: 15px;
+  transition: all 0.2s ease-in;
+  width: 120px;
 
   :hover {
     background-color: #C14113;
   }
   :active {
-    background-color: #222222;
+    background-color: #C4C4D2;
+  }
+`;
+
+export const ReturnButton = styled.button`
+  background-color: #C14113;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  height: 45px;
+  transition: all 0.2s ease-in;
+  width: 150px;
+
+  :hover {
+    background-color: #C14113;
+  }
+  :active {
+    background-color: #C4C4D2;
   }
 `;

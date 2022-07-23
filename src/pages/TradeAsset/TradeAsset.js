@@ -103,34 +103,38 @@ function TradeAsset() {
         </tbody>
       </S.Table>
       <form>
-        <label htmlFor="buyAsset">
+        <div>
           <S.Button type="button" name="buyAssetBtn" id="buyAsset" onClick={selectBuyBtn}>
             Comprar
           </S.Button>
-          <input
-            type="text"
-            placeholder="Insira a quantidade"
-            value={buyQuantity}
-            onChange={({ target }) => setBuyQuantity(target.value)}
-          />
-        </label>
-        <label htmlFor="sellAsset">
+          <label htmlFor="buyAsset">
+            <input
+              type="text"
+              placeholder="Insira a quantidade"
+              value={buyQuantity}
+              onChange={({ target }) => setBuyQuantity(target.value)}
+            />
+          </label>
+        </div>
+        <div>
           <S.Button type="button" name="sellAssetBtn" id="sellAsset" onClick={selectSellBtn} disabled={hasAsset ? '' : 'disabled'}>
             Vender
           </S.Button>
-          <input
-            placeholder="Insira a quantidade"
-            type="text"
-            value={sellQuantity}
-            onChange={({ target }) => setSellQuantity(target.value)}
-          />
-        </label>
+          <label htmlFor="sellAsset">
+            <input
+              placeholder="Insira a quantidade"
+              type="text"
+              value={sellQuantity}
+              onChange={({ target }) => setSellQuantity(target.value)}
+            />
+          </label>
+        </div>
       </form>
-      <div>
-        <button type="button" name="returnAssetsBtn" onClick={() => navigate('/assets')}>
+      <section>
+        <S.ReturnButton type="button" name="returnAssetsBtn" onClick={() => navigate('/assets')}>
           Voltar
-        </button>
-      </div>
+        </S.ReturnButton>
+      </section>
       <Toaster />
     </S.Container>
   );
