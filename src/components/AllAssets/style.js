@@ -1,72 +1,65 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
 
   h3 {
     color: #060A28;
+    font-weight: bold;
     margin-top: 25px;
-    justify-content: space-around;
   }
   `;
 
-export const Content = styled.table`
-align-items: center;
-`;
-
 export const Table = styled.table`
-text-align: center;
-margin-top: 30px;
-width: 60%;
-table-layout: fixed;
-border-collapse: collapse;
+  border-collapse: collapse;
+  margin-top: 30px;
+  table-layout: fixed;
+  text-align: center;
+  width: 60%;
 
-th {
-  color: #060A28;
-  background-color: #E74F19;
-}
-td {
-  color: #E74F19;
-}
+  th {
+    color: #060A28;
+  }
+
+  td {
+    color: #E74F19;
+  }
 `;
 
 export const Button = styled.button`
-  padding: 0.9em 1.5em;
-  margin: 10px;
-  font-size: 10px;
-  text-transform: uppercase;
-  font-weight: bold;
-  color: #E74F19;
   background-color: #060A28;
   border: none;
   border-radius: 10px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease-in;
+  color: #E74F19;
   cursor: pointer;
-  outline: none;
+  font-size: 10px;
+  font-weight: bold;
+  margin: 10px;
+  padding: 0.9em 1.5em;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in;
 
   hover {
   background-color: #E74F19;
   color: #fff;
   transform: translateY(-7px);
 }
-
 `;
 
 export const ButtonDisabled = styled.button`
-  padding: 0.9em 1.5em;
-  margin: 30 px;
-  font-size: 10px;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #E74F19;
   background-color: #C4C4D2;
   border: none;
   border-radius: 10px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  color: #E74F19;
   cursor: pointer;
-  outline: none;
+  font-size: 10px;
+  font-weight: 500;
+  margin: 30 px;
+  padding: 0.9em 1.5em;
+  text-transform: uppercase;
 `;

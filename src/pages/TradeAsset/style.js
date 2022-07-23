@@ -14,9 +14,9 @@ align-items: center;
   
   p {
     color: #060A28;
-    margin: 30px;
     font-size: 20px;
     font-weight: bold;
+    margin: 30px;
   }
 `;
 
@@ -29,10 +29,11 @@ border-collapse: collapse;
 
 th {
   color: #060A28;
-  background-color: #E74F19;
+
 }
 td {
   color: #E74F19;
+  margin: 20px;
 }
 `;
 

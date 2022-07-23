@@ -8,22 +8,23 @@ align-items: center;
 
   h3 {
     color: #060A28;
+    font-weight: bold;
     margin-top: 25px;
     justify-content: space-around;
   }
 `;
 
 export const Table = styled.table`
-text-align: center;
-margin-top: 30px;
-width: 60%;
-table-layout: fixed;
 border-collapse: collapse;
+margin-top: 30px;
+table-layout: fixed;
+text-align: center;
+width: 60%;
 
 th {
   color: #060A28;
-  background-color: #E74F19;
 }
+
 td {
   color: #E74F19;
 }
