@@ -8,7 +8,7 @@ import { addMoney, withdrawMoney } from '../../redux/slices/user';
 import * as S from './style';
 
 function Account() {
-  const [inputAmount, setInputAmount] = useState();
+  const [inputAmount, setInputAmount] = useState('');
   const balance = useSelector((state) => state.user.balance);
   const inputValue = Number(inputAmount) || 0;
 
@@ -16,18 +16,21 @@ function Account() {
   const navigate = useNavigate();
 
   const handleSelect = ({ target: { name } }) => {
+    if (inputValue <= 0 || inputValue === '') {
+      toast.error('Digite um valor válido!');
+    }
     if (name === 'depositBtn' && inputValue > 0) {
       dispatch(addMoney(inputValue));
-      toast.success(`Depósito de R$ ${inputValue} reais realizado com sucesso`);
+      toast.success(`Depósito de R$ ${inputValue} reais realizado com sucesso!`);
     }
     if (name === 'withdrawBtn' && inputValue > 0 && inputValue <= balance) {
       dispatch(withdrawMoney(inputValue));
-      toast.success(`Saque de R$ ${inputValue} reais realizado com sucesso`);
+      toast.success(`Saque de R$ ${inputValue} reais realizado com sucesso!`);
     }
     if (name === 'withdrawBtn' && inputValue > balance) {
-      toast.error('Saldo insuficiente');
+      toast.error('Atenção, saldo insuficiente!');
     }
-    return [];
+    setInputAmount('');
   };
 
   return (

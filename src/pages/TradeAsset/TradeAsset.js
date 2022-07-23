@@ -15,15 +15,15 @@ function TradeAsset() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const AllAssets = useSelector((state) => state.asset.allAssets);
+  const allAssets = useSelector((state) => state.asset.allAssets);
   const balance = useSelector((state) => state.user.balance);
   const objAssets = useSelector((state) => state.asset);
   const myAssets = objAssets.myAsset;
 
-  const [buyQuantity, setBuyQuantity] = useState();
-  const [sellQuantity, setSellQuantity] = useState();
+  const [buyQuantity, setBuyQuantity] = useState('');
+  const [sellQuantity, setSellQuantity] = useState('');
 
-  const assetSelected = AllAssets.filter((asset) => asset.id === +id);
+  const assetSelected = allAssets.filter((asset) => asset.id === +id);
   const selected = assetSelected[0];
 
   const hasAsset = myAssets.some((asset) => id.includes(asset.id));
@@ -37,14 +37,15 @@ function TradeAsset() {
     };
 
     if (balance < (stock.price * stock.quantity)) {
-      toast.error('Seu saldo não é suficiente para realizar essa compra');
+      toast.error('Atenção! Seu saldo não é suficiente para realizar essa compra.');
     }
     if (balance >= (stock.price * stock.quantity)) {
       dispatch(buyAsset(stock));
       dispatch(withdrawMoney(stock.price * stock.quantity));
       dispatch(decreaseAssetQnt(stock));
-      toast.success(`Compra de ${stock.quantity} unidades do ativo ${stock.asset} realizada com sucesso`);
+      toast.success(`Compra de ${stock.quantity} unidades do ativo ${stock.asset} realizada com sucesso!`);
     }
+    setBuyQuantity('');
   };
 
   const selectSellBtn = () => {
@@ -58,18 +59,19 @@ function TradeAsset() {
     const selectedAsset = myAssets.filter((asset) => asset.id === +id);
     const avaiableQuant = selectedAsset[0].quantity;
 
-    if (avaiableQuant && +sellQuantity === avaiableQuant) {
+    if (avaiableQuant && +sellQuantity > 0 && +sellQuantity === avaiableQuant) {
       dispatch(increaseAssetQnt(stock));
       dispatch(addMoney(stock.price * stock.quantity));
       dispatch(removeAsset(stock));
-      toast.success(`Venda de ${stock.quantity} unidades do ativo ${stock.asset} realizada com sucesso`);
+      toast.success(`Venda de ${stock.quantity} unidades do ativo ${stock.asset} realizada com sucesso!`);
     }
-    if (avaiableQuant && +sellQuantity < avaiableQuant) {
+    if (avaiableQuant && +sellQuantity > 0 && +sellQuantity < avaiableQuant) {
       dispatch(sellAsset(stock));
       dispatch(addMoney(stock.price * stock.quantity));
       dispatch(increaseAssetQnt(stock));
-      toast.success(`Venda de ${stock.quantity} unidades do ativo ${stock.asset} realizada com sucesso`);
+      toast.success(`Venda de ${stock.quantity} unidades do ativo ${stock.asset} realizada com sucesso!`);
     }
+    setSellQuantity('');
   };
 
   return (
@@ -95,7 +97,7 @@ function TradeAsset() {
             <tr key={asset.id}>
               <td>{ asset.asset }</td>
               <td>{ asset.quantity }</td>
-              <td>{ asset.price }</td>
+              <td>{ (asset.price).toFixed(2) }</td>
             </tr>
           ))}
         </tbody>
@@ -109,7 +111,7 @@ function TradeAsset() {
             type="text"
             placeholder="Insira a quantidade"
             value={buyQuantity}
-            onChange={(event) => setBuyQuantity(event.target.value)}
+            onChange={({ target }) => setBuyQuantity(target.value)}
           />
         </label>
         <label htmlFor="sellAsset">
@@ -120,7 +122,7 @@ function TradeAsset() {
             placeholder="Insira a quantidade"
             type="text"
             value={sellQuantity}
-            onChange={(event) => setSellQuantity(event.target.value)}
+            onChange={({ target }) => setSellQuantity(target.value)}
           />
         </label>
       </form>
