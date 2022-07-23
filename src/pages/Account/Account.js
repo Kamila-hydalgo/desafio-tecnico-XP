@@ -36,34 +36,41 @@ function Account() {
   return (
     <S.Container>
       <Header />
+      <h2>MINHA CONTA</h2>
       <S.Content>
         <p>
+          {' '}
           Saldo Disponível:
+          {' '}
           {balance.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}
         </p>
-        <S.Button type="button" className="depositBtn" name="depositBtn" onClick={handleSelect}>
-          Depósito
-        </S.Button>
-        <S.Button type="button" className="withdrawBtn" name="withdrawBtn" onClick={handleSelect}>
-          Saque
-        </S.Button>
         <form>
-          <label htmlFor="accountValue">
-            <input
-              id="value"
-              name="accountValue"
-              placeholder="Informe o valor"
-              value={inputAmount}
-              onChange={(e) => setInputAmount(e.target.value)}
-            />
-          </label>
+          <div>
+            <S.Button type="button" className="depositBtn" name="depositBtn" onClick={handleSelect}>
+              Depósito
+            </S.Button>
+            <S.Button type="button" className="withdrawBtn" name="withdrawBtn" onClick={handleSelect}>
+              Saque
+            </S.Button>
+          </div>
+          <div>
+            <label htmlFor="accountValue">
+              <input
+                id="value"
+                name="accountValue"
+                placeholder="Informe o valor"
+                value={inputAmount}
+                onChange={(e) => setInputAmount(e.target.value)}
+              />
+            </label>
+          </div>
         </form>
       </S.Content>
-      <div>
-        <S.Button type="button" className="returnBtn" name="returnAssetsBtn" onClick={() => navigate('/assets')}>
+      <section>
+        <S.ReturnButton type="button" className="returnBtn" name="returnAssetsBtn" onClick={() => navigate('/assets')}>
           Voltar
-        </S.Button>
-      </div>
+        </S.ReturnButton>
+      </section>
       <Toaster />
     </S.Container>
   );

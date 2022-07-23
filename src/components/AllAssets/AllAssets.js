@@ -1,11 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import assets from '../../utils/assets.json';
 import * as S from './style';
 
 function AllAssets() {
   const navigate = useNavigate();
+
+  const allAssets = useSelector((state) => state.asset.allAssets);
 
   return (
     <S.Container>
@@ -20,7 +22,7 @@ function AllAssets() {
           </tr>
         </thead>
         <tbody>
-          { assets.map((asset) => (
+          { allAssets.map((asset) => (
             <tr key={asset.id}>
               <td>{ asset.asset }</td>
               <td>{ asset.quantity }</td>

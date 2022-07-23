@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import MyAssets from '../../components/MyAssets/MyAssets';
 import AllAssets from '../../components/AllAssets/AllAssets';
+import Footer from '../../components/Footer/Footer';
 import * as S from './style';
 
 function Assets() {
@@ -19,6 +20,7 @@ function Assets() {
           Depósito/Saque
         </S.Button>
       </S.ContentButton>
+      <Footer />
     </S.Container>
   );
 }
