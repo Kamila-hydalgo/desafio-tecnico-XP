@@ -36,10 +36,13 @@ function TradeAsset() {
       price: selected.price,
     };
 
+    if (stock.quantity <= 0) {
+      toast.error('Digite um valor válido!');
+    }
     if (balance < (stock.price * stock.quantity)) {
       toast.error('Atenção! Seu saldo não é suficiente para realizar essa compra.');
     }
-    if (balance >= (stock.price * stock.quantity)) {
+    if (stock.quantity > 0 && balance >= (stock.price * stock.quantity)) {
       dispatch(buyAsset(stock));
       dispatch(withdrawMoney(stock.price * stock.quantity));
       dispatch(decreaseAssetQnt(stock));
@@ -59,6 +62,9 @@ function TradeAsset() {
     const selectedAsset = myAssets.filter((asset) => asset.id === +id);
     const avaiableQuant = selectedAsset[0].quantity;
 
+    if (stock.quantity <= 0) {
+      toast.error('Digite um valor válido!');
+    }
     if (avaiableQuant && +sellQuantity > 0 && +sellQuantity === avaiableQuant) {
       dispatch(increaseAssetQnt(stock));
       dispatch(addMoney(stock.price * stock.quantity));

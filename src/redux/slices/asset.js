@@ -27,7 +27,7 @@ export const assetSlice = createSlice({
       }
     },
     removeAsset: (state, { payload }) => {
-      state.myAsset = state.myAsset.filter((asset) => (!(asset.id === payload.id)));
+      state.myAsset = state.myAsset.filter((asset) => (asset.id !== payload.id));
     },
     decreaseAssetQnt: (state, { payload }) => {
       const teste = state.allAssets.find((asset) => asset.id === payload.id);

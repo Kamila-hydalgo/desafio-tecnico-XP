@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-// import toast, { Toaster } from 'react-hot-toast';
 import { changeName } from '../../redux/slices/user';
 import * as S from './style';
 import Logo from '../../images/loginLogo.svg';

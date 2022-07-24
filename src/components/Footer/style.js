@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Footer = styled.footer`
+const Style = styled.footer`
   background-color: ${({ theme }) => theme.colors.primary.background};
   height: 10px;
   width: 100%;
@@ -29,4 +29,4 @@ const Footer = styled.footer`
   }
 `;
 
-export default Footer;
+export default Style;

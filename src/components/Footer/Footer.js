@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Footer from './style';
+import Style from './style';
 
-function FooterFunc() {
+function Footer() {
   return (
-    <Footer>
+    <Style>
       <nav>
         <a
           href="https://github.com/Kamila-hydalgo"
@@ -12,8 +12,8 @@ function FooterFunc() {
           Made with ♡ by Kamis
         </a>
       </nav>
-    </Footer>
+    </Style>
   );
 }
 
-export default FooterFunc;
+export default Footer;

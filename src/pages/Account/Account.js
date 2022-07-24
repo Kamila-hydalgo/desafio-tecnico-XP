@@ -16,7 +16,7 @@ function Account() {
   const navigate = useNavigate();
 
   const handleSelect = ({ target: { name } }) => {
-    if (inputValue <= 0 || inputValue === '') {
+    if (inputValue <= 0) {
       toast.error('Digite um valor válido!');
     }
     if (name === 'depositBtn' && inputValue > 0) {
@@ -56,6 +56,7 @@ function Account() {
           <div>
             <label htmlFor="accountValue">
               <input
+                type="number"
                 id="value"
                 name="accountValue"
                 placeholder="Informe o valor"
