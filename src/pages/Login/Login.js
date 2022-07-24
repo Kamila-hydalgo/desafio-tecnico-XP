@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import { validate } from 'react-email-validator';
 import { changeName } from '../../redux/slices/user';
 import * as S from './style';
 import Logo from '../../images/loginLogo.svg';
@@ -23,8 +24,7 @@ function Login() {
     }
   };
 
-  const isButtonDisabled = () => !(/\S+@\S+\.\S+/).test(email)
-    || (password.length < 6);
+  const isButtonDisabled = () => !validate(email) || (password.length < 6);
 
   const handleClick = (event) => {
     event.preventDefault();
