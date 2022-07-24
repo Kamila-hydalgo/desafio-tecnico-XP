@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import * as S from './style';
 import Logo from '../../images/logo-rico.svg';
 

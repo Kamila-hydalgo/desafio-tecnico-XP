@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 import { validate } from 'react-email-validator';
+
 import { changeName } from '../../redux/slices/user';
 import * as S from './style';
 import Logo from '../../images/loginLogo.svg';
@@ -18,8 +18,6 @@ function Login() {
   const handleChange = ({ target: { name, value } }) => {
     if (name === 'email') {
       setEmail(value);
-      localStorage.setItem('email', value);
-      localStorage.setItem('date', new Date());
     }
     if (name === 'password') {
       setPassword(value);
@@ -32,6 +30,8 @@ function Login() {
     event.preventDefault();
 
     dispatch(changeName(email));
+    localStorage.setItem('email', email);
+    localStorage.setItem('date', new Date());
 
     navigate('/assets');
   };
@@ -39,11 +39,10 @@ function Login() {
   return (
     <S.Container>
       <S.Content>
-        <img src={LogoRico} alt="logotipo rico investimentos" />
+        <img src={LogoRico} alt="logo rico investimentos" />
         <form>
           <label htmlFor="email">
             <input
-              id="email"
               type="email"
               name="email"
               placeholder="Digite seu email"
@@ -53,7 +52,6 @@ function Login() {
           </label>
           <label htmlFor="password">
             <input
-              id="password"
               type="password"
               name="password"
               placeholder="Digite sua senha"

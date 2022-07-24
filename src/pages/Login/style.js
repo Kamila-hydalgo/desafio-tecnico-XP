@@ -1,21 +1,19 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100vw;
-  max-width: 1980px;
-  height: 100vh;
-
-
-  display: flex;
   align-items: center;
+  display: flex;
+  height: 100vh;
+  max-width: 1980px;
+  width: 100vw;
 `;
 
 export const Aside = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
 
   img {
     width: calc(100% - 250px)
@@ -23,10 +21,10 @@ export const Aside = styled.div`
 `;
 
 export const Content = styled.div`
+  background-color: ${({ theme }) => theme.colors.primary.background};
+  height: 100%;
   min-width: 40%;
   width: 40%;
-  height: 100%;
-  background-color: ${({ theme }) => theme.colors.primary.background};
 
   padding: 100px 50px 100px;
 
@@ -40,15 +38,15 @@ export const Content = styled.div`
   }
 
   form {
-    width: 80%;
     display: flex;
     flex-direction: column;
+    width: 80%;
 
     label {
+      color: #C4C4D2;
       display: flex;
       flex-direction: column;
       font-size: 18px;
-      color: #C4C4D2;
 
       input {
         height: 55px;
@@ -57,13 +55,13 @@ export const Content = styled.div`
         background-color: transparent;
         border: 2px solid #ffffff40;
         border-radius: 10px;
-        color: #ffffff40;
+        color: #060A28;
         font-size: 16px;
         padding-left: 20px;
         transition: all 0.4s ease-in-out;
 
         ::placeholder {
-          color: #ffffff40;
+          color: #060A28;
         }
 
         :hover {
@@ -84,7 +82,7 @@ export const Button = styled.button`
   background-color: #C14113;
   border: none;
   border-radius: 10px;
-  color: #fff;
+  color: #C4C4D2;
   font-size: 20px;
   font-weight: 500;
   transition: all 0.2s ease-in;
@@ -97,8 +95,8 @@ export const Button = styled.button`
   }
 
   :disabled {
-    background-color: #ffe2ed;
-    color: #00000040;
+    background-color: #C4C4D2;
+    color: #C14113;
     cursor: not-allowed;
   }
 `;

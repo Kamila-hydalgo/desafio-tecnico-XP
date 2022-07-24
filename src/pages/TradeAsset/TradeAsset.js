@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-
 import toast, { Toaster } from 'react-hot-toast';
+
 import * as S from './style';
 import Header from '../../components/Header/Header';
 import { addMoney, withdrawMoney } from '../../redux/slices/user';
@@ -115,7 +115,7 @@ function TradeAsset() {
           </S.Button>
           <label htmlFor="buyAsset">
             <input
-              type="text"
+              type="number"
               placeholder="Insira a quantidade"
               value={buyQuantity}
               onChange={({ target }) => setBuyQuantity(target.value)}
@@ -129,7 +129,7 @@ function TradeAsset() {
           <label htmlFor="sellAsset">
             <input
               placeholder="Insira a quantidade"
-              type="text"
+              type="number"
               value={sellQuantity}
               onChange={({ target }) => setSellQuantity(target.value)}
             />

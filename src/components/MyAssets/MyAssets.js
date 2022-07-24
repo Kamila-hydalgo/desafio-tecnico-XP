@@ -6,6 +6,7 @@ import * as S from './style';
 
 function MyAssets() {
   const navigate = useNavigate();
+
   const objAssets = useSelector((state) => state.asset);
   const myAssets = objAssets.myAsset;
 

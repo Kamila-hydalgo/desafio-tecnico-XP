@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-display: flex;
-flex-direction: column;
-flex-wrap: wrap;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
 
   h3 {
     color: #060A28;
@@ -15,11 +15,11 @@ align-items: center;
 `;
 
 export const Table = styled.table`
-border-collapse: collapse;
-margin-top: 30px;
-table-layout: fixed;
-text-align: center;
-width: 60%;
+  border-collapse: collapse;
+  margin-top: 30px;
+  table-layout: fixed;
+  text-align: center;
+  width: 60%;
 
 th {
   color: #060A28;
