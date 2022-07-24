@@ -18,6 +18,8 @@ function Login() {
   const handleChange = ({ target: { name, value } }) => {
     if (name === 'email') {
       setEmail(value);
+      localStorage.setItem('email', value);
+      localStorage.setItem('date', new Date());
     }
     if (name === 'password') {
       setPassword(value);

@@ -1,11 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as S from './style';
 import Logo from '../../images/logo-rico.svg';
 
 function Header() {
-  const user = useSelector((state) => state.user.email);
+  const user = localStorage.getItem('email');
 
   return (
     <S.Container>
