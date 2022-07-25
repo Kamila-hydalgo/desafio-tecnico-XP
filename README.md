@@ -84,7 +84,7 @@ Para desenvolver essa aplicação optei por utilizar o <strong>React</strong>, q
  
  - Outro ponto bastante desafiador, foi conseguir abranger o máximo as <strong>validações de erros</strong> para notificar o usuário de como agir ao utilizar a aplicação. Analisar as regras de negócio e pensar em vários cenários como: não conseguir comprar ação caso não tenha saldo suficiente, não poder vender uma quantidade de ação maior do que ele possui, vender uma ação que não possui, não poder sacar um valor maior que o disponível em conta, fazer com que o saldo da conta altere assim que for realizada uma compra ou venda e atualizar a quantidade de ações disponíveis para compra quando houver venda ou compra das mesmas.
  
- - E acredito que tenha sido o maior deles, os <strong>testes</strong>! Após várias tentativas, não consegui implementá-los já que com o toolkit temos o configureStore lidando com o store e não consegui realizar o mock do mesmo. Esse realmente é um ponto de atenção, visto que tenho consciência do quanto testes são fundamentais para desenvolvimento de aplicações seguras e a implementação dos mesmos é essencial no ambiente de trabalho. 
+ - E acredito que tenha sido o maior deles, os <strong>testes</strong>! Após várias tentativas, não consegui implementá-los já que era minha primeira vez utilizando o toolkit e tive dificuldade em realizar as configurações. Esse realmente é um ponto de atenção, visto que tenho consciência do quanto testes são fundamentais para desenvolvimento de aplicações seguras e a implementação dos mesmos é essencial no ambiente de trabalho. 
 
 
 ## **:arrow_down: Instalando dependências**
