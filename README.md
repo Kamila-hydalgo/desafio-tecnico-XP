@@ -15,6 +15,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias em Front-end:
 
 - React
 - Redux Toolkit
+- JavaScript
 - Styled components
 
 ## **:woman_technologist: Desenvolvimento**
