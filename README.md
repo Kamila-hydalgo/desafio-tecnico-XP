@@ -61,11 +61,11 @@ Para desenvolver essa aplicação optei por utilizar o <strong>React</strong>, q
 
   - <strong>Login</strong>: usuário coloca email e senha para realizar login e acessar a página principal de ações(`/assets`). A informação de email é salva no <strong>local Storage</strong>, juntamente com data e horário logados, e disponibilizada no componente Header em todas as páginas da aplicação. A validação do email foi feita com a lib `react-email-validator` e a senha para ter no mínimo 6 caracteres. 
   
-  - <strong>Assets</strong>: essa página possui 2 componentes- `MyAssets` e `AllAssets`, onde são renderizadas todas as ações da carteira do cliente e todas as ações disponíveis para compra. Usuário pode clicar nas ações que deseja comprar e vender(caso já tenha em carteira) e será levado para página de trade.
+  - <strong>Home</strong>: essa página possui 2 componentes- `MyAssets` e `AllAssets`, onde são renderizadas todas as ações da carteira do cliente e todas as ações disponíveis para compra. Usuário pode clicar nas ações que deseja comprar e vender(caso já tenha em carteira) e será levado para página de trade.
   
-  - <strong>Trade</strong>: nessa página usuário pode ver a quantidade disponível para compra da ação, preço e determinar quantas unidades deseja comprar ou vender. Também é possível ver o saldo disponível em conta atualizado após compras ou vendas.
+  - <strong>Home Broker</strong>: nessa página usuário pode ver a quantidade disponível para compra da ação, preço e determinar quantas unidades deseja comprar ou vender. Também é possível ver o saldo disponível em conta atualizado após compras ou vendas.
   
-  - <strong>Account</strong>: usuário consegue fazer depósitos e saques da sua conta digital e vizualizar seu saldo disponível.
+  - <strong>Conta digital</strong>: usuário consegue fazer depósitos e saques da sua conta digital e vizualizar seu saldo disponível.
   
 
 <summary><strong>🎛 Linter</strong></summary>
