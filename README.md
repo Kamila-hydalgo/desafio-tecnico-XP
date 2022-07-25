@@ -76,10 +76,6 @@ Para rodar o front-end:
 
 `npm start`
 
-## **:test_tube: Executando os testes**
+## **Autora**
 
-:warning: Não foram implementados testes nessa aplicação!
-
-Para rodar todos os testes:
-
-`npm test`
+[Kamila Hydalgo](https://github.com/Kamila-hydalgo)
