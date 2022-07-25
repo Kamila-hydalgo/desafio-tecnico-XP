@@ -2,7 +2,7 @@
 
 Este projeto foi especialmente desenvolvido para o processo seletivo da XP Inc., exclusivo da Turma XP em parceria com a Trybe! 
 
-Nessa aplicação construí um <strong>Front-End</strong> de uma corretora de investimentos, onde é possível que o usuário veja todas as ações disponíveis para compra na página principal, bem como as ações já adquiridas na sua carteira. É possível comprar uma nova ação, e comprar ou vender ações já adquiridas anteriormente. A aplicação conta com uma página da conta digital, onde é possível fazer depósitos e saques em sua conta.
+Nessa aplicação construí um <strong>Front-End</strong> de um aplicativo de investimentos em ações, onde é possível que o usuário veja todas as ações disponíveis para compra na página principal, bem como as ações já adquiridas na sua carteira. É possível comprar uma nova ação, e comprar ou vender ações já adquiridas anteriormente. A aplicação conta com uma página da conta digital, onde é possível fazer depósitos e saques em sua conta.
 
 
 ## **:computer: Deploy**
@@ -15,6 +15,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias em Front-end:
 
 - React
 - Redux Toolkit
+- Hooks
 - JavaScript
 - Styled components
 
